@@ -8,6 +8,7 @@ Dia 1:
 python -m venv venv (apagar venv se bugar criação)
 source venv/bin/activate (ativa ambiente)
 instalando pymongo, requests, selenium, Flask
+pip freeze > requirements.txt
 iniciando repositorio:
 git init
 git add .
@@ -28,3 +29,17 @@ para usar CHAVE SSH no repositório ao fim das configurações:
 git remote set-url origin git@github.com:freiheitsoftworks/Dark-Bot.git
 
 git push -u origin main
+
+para liberar backend acessar interface gráfica
+
+> xhost +
+> sudo apt-get install python3-tk python3-dev (linux não vem com o tkinter)
+
+problema de permissão para git add -> sudo chown -R $USER:$USER .git
+
+COMANDO ESPECIAL (resentando containeres):
+
+docker stop $(docker ps -aq) &&
+docker rm $(docker ps -aq) &&
+docker-compose down -v &&
+docker volume prune -f

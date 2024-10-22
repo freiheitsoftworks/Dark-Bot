@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nova Coleta de Dados</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Nova Coleta de Dados</h1>
+    </header>
+    <form action="/nova_coleta" method="POST">
+      <label for="plataforma">Selecione a plataforma:</label>
+      <select id="plataforma" name="plataforma">
+        <option value="youtube">YouTube</option>
+        <option value="tiktok">TikTok</option>
+        <!-- Adicione mais opções conforme necessário -->
+      </select>
+      <br /><br />
+      <label for="canais">Digite os nomes dos canais:</label>
+      <input
+        type="text"
+        id="canais"
+        name="canais"
+        placeholder="Canal 1, Canal 2, ..."
+        required
+      />
+      <br /><br />
+      <button type="submit">Iniciar Coleta</button>
+    </form>
+  </body>
+</html>

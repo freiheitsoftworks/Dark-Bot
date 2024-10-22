@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dark Bot - Plataforma de Serviços</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+    <script
+      defer
+      src="{{ url_for('static', filename='js/scripts.js') }}"
+    ></script>
+  </head>
+  <body class="dark-theme">
+    <header>
+      <h1>Dark Bot - Plataforma de Automação</h1>
+      <button id="theme-toggle">Alterar Tema</button>
+    </header>
+
+    <section>
+      <h2>Serviços Disponíveis</h2>
+      <ul>
+        <li><a href="/nova-coleta">Iniciar Coleta de Dados</a></li>
+        <li><a href="/ver-relatorios">Ver Relatórios</a></li>
+        <li><a href="/criar-conteudo">Criar Conteúdo</a></li>
+      </ul>
+    </section>
+  </body>
+</html>

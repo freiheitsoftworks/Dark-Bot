@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criar Conteúdo</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Criar Conteúdo</h1>
+    </header>
+    <form action="/criar_conteudo" method="POST">
+      <label for="tipo_conteudo">Tipo de Conteúdo:</label>
+      <select id="tipo_conteudo" name="tipo_conteudo">
+        <option value="short_video">Vídeo Curto</option>
+        <option value="long_video">Vídeo Longo</option>
+        <option value="instagram_image">Post de Imagem no Instagram</option>
+        <option value="site_post">Post de Site</option>
+      </select>
+      <br /><br />
+      <button type="submit">Criar</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relatórios Criados</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Relatórios Criados</h1>
+    </header>
+    <section>
+      <ul>
+        <!-- Cada relatório será listado aqui -->
+        {% for relatorio in relatorios %}
+        <li>
+          <strong>Plataforma:</strong> {{ relatorio.plataforma }} <br />
+          <strong>Canais:</strong> {{ relatorio.canais }} <br />
+          <strong>Data de Criação:</strong> {{ relatorio.data_criacao }}
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+  </body>
+</html>
