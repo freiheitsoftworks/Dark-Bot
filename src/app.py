@@ -1,8 +1,8 @@
 from flask import Flask
 from Controller.home import home
-from Controller.data_collection import data_collection
-from Controller.report import relatorio
-from Controller.content import conteudo
+from Controller.data_collections import data_collection
+from Controller.reports import reports
+from Controller.contents import contents
 
 template_dir =  'View/templates'
 static_dir = 'View/static'

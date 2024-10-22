@@ -1,27 +1,18 @@
-# models/profile.py
-
 from datetime import datetime
-
+from mongoengine import *
+from Model.content import BaseContent
 
 class Profile:
-    def __init__(self, id, name, main_language, subscribers, niche, subniche):
-        self.id = id
-        self.name = name
-        self.main_language = main_language
-        self.subscribers = subscribers
-        self.niche = niche
-        self.subniche = subniche
-        self.videos_per_day = 0
-        self.videos_per_week = 0
-        self.videos_per_month = 0
-        self.total_videos = 0
-        self.comments_average = 0
-        self.similar_channels = []
-        self.synchronized_channels = []
-        self.last_update = None
-        self.last_video = None
-
-    def update_video(self, video_id):
-        self.last_video = video_id
-        self.last_update = datetime.now()
-        self.total_videos += 1  # Update as needed
+    name = StringField(required=True, error_messages={'required': 'Name is required.'})
+    niche = StringField(required=True, error_messages={'required': 'Niche is required.'})
+    sub_niche = StringField(required=True, error_messages={'required': 'Sub niche is required.'})
+    contents_per_day = FloatField(default=0,required=False)
+    contents_per_week = FloatField(default=0,required=False)
+    contents_per_month = FloatField(default=0,required=False)
+    total_contents = IntField(default=0)
+    comments_average = FloatField(default=0)
+    similar_channels = ListField(ReferenceField('Profile'), required=True,default = [])
+    synchronized_channels = ListField(ReferenceField('Profile'), required=True,default = [])
+    last_content_date = StringField(required=False,default=datetime.datetime.now())
+    last_content = ReferenceField(BaseContent,required=False,default=None)
+    main_language = StringField(required=False,default="pt-BR")
