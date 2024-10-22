@@ -1,8 +1,8 @@
 from flask import Blueprint, render_template
 
 # Definindo um blueprint para as rotas da home
-home_bp = Blueprint('home',__name__)
+home = Blueprint('home',__name__)
 
-@home_bp.route('/')
+@home.route('/')
 def home():
     return render_template('home.html')

@@ -7,7 +7,7 @@ Dia 1:
 (usar pytgon-is-pthon3 se não estiver configurado corretamente)
 python -m venv venv (apagar venv se bugar criação)
 source venv/bin/activate (ativa ambiente)
-instalando pymongo, requests, selenium, Flask
+instalando pymongo (trocado por mongoengie), requests, selenium, Flask
 pip freeze > requirements.txt
 iniciando repositorio:
 git init
@@ -36,6 +36,7 @@ para liberar backend acessar interface gráfica
 > sudo apt-get install python3-tk python3-dev (linux não vem com o tkinter)
 
 problema de permissão para git add -> sudo chown -R $USER:$USER .git
+problema de permissão para venv -> sudo chown -R $USER:$USER ~/Área\ de\ Trabalho/Projetos\ Pessoais/dark-bot/venv
 
 COMANDO ESPECIAL (resentando containeres):
 
