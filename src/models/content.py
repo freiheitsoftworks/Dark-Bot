@@ -16,6 +16,7 @@ class Comment(Document):
     created_at = StringField(default=str(datetime.date.today()))
     baseContent = ReferenceField("BaseContent", reverse_delete_rule=CASCADE, required=True)
     content_url= StringField(required=True, error_messages={'required': 'Content URL is required.'})
+    language = StringField(required=False,default="pt-BR")
 
 class BaseContent(Document):
     title = StringField(required=True, error_messages={'required': 'Title is required.'})
@@ -25,6 +26,8 @@ class BaseContent(Document):
     likes = IntField(required=True, default=0, error_messages={'required': 'Invalid Likes.'})
     comments = ListField(ReferenceField("Comment"))
     collection = ReferenceField(BaseCollection, reverse_delete_rule=CASCADE, required=True)
+    language = StringField(required=False,default="pt-BR")
+
 
 class YoutubeVideo(BaseContent):
     description = StringField(required=True, error_messages={'required': 'Description is required.'})
