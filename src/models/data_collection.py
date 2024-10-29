@@ -1,7 +1,7 @@
 from datetime import datetime
 from mongoengine import *
 from profile import Profile
-from Model.content import BaseContent, Platform
+from models.content import BaseContent, Platform
 
 class BaseCollection:   
     profiles = ListField(ReferenceField(Profile))

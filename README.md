@@ -166,3 +166,5 @@ docker rm $(docker ps -aq) &&
 docker-compose down -v &&
 docker volume prune -f
 ```
+
+pip install flask[async] <- flask com await

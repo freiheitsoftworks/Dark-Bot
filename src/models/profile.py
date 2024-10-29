@@ -1,6 +1,6 @@
 from datetime import datetime
 from mongoengine import *
-from Model.content import BaseContent
+from models.content import BaseContent
 
 class Profile:
     name = StringField(required=True, error_messages={'required': 'Name is required.'})

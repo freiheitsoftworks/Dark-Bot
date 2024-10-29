@@ -1,19 +1,16 @@
+import time
 from flask import Flask
 import logging
-from mongoengine import connect
+# from mongoengine import connect
 from config import Config  # Importar as configurações
 
-
-from blueprints.data_collection.routes import bp as data_collection
-from blueprints.home.routes import bp as home
-from blueprints.profile.routes import bp as profile
-from blueprints.report.routes import bp as report
-from blueprints.content.routes import bp as content
-
+from blueprints.data_collection.controller import bp as data_collection
+from blueprints.home.controller import bp as home
+from blueprints.profile.controller import bp as profile
+from blueprints.report.controller import bp as report
+from blueprints.content.controller import bp as content
 
 logging.basicConfig(level=logging.DEBUG)
-
-
 
 template_dir =  'views/templates'
 static_dir = 'views/static'
@@ -28,7 +25,7 @@ app.register_blueprint(data_collection,url_prefix="/data-collection")
 app.register_blueprint(content,url_prefix="/content")
 app.register_blueprint(report,url_prefix="/report")
 
-
+time.sleep(2)
 
 if __name__ == '__main__':
     logging.debug("App is starting...")
