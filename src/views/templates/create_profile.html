@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nova Coleta de Dados</title>
+    <title>Registrar Perfil</title>
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/styles.css') }}"
@@ -11,26 +11,35 @@
   </head>
   <body>
     <header>
-      <h1>Nova Coleta de Dados</h1>
+      <h1>Registrar Perfil</h1>
     </header>
-    <form action="/profile" method="POST">
+    <!-- Exibição de mensagens flash -->
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %}
+    <ul class="flashes">
+      {% for category, message in messages %}
+      <li class="{{ category }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+    <form action="/profile/create" method="POST">
       <label for="plataforma">Selecione a plataforma:</label>
-      <select id="plataforma" name="plataforma">
-        <option value="youtube">YouTube</option>
-        <option value="tiktok">TikTok</option>
-        <!-- Adicione mais opções conforme necessário -->
+      <select id="plataforma" name="plataforma" required>
+        {% for platform in platforms %}
+        <option value="{{ platform }}">{{ platform }}</option>
+        {% endfor %}
       </select>
       <br /><br />
-      <label for="canais">Digite os nomes dos canais:</label>
+      <label for="url">Insira o URL do canal:</label>
       <input
         type="text"
-        id="canais"
-        name="canais"
-        placeholder="Canal 1, Canal 2, ..."
+        id="url"
+        name="url"
+        placeholder="Insira o URL do canal"
         required
       />
       <br /><br />
-      <button type="submit">Iniciar Coleta</button>
+      <button type="submit">Registrar</button>
     </form>
   </body>
 </html>

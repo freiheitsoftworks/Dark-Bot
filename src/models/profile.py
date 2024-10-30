@@ -1,6 +1,5 @@
 from datetime import datetime
 from mongoengine import *
-from models.content import BaseContent
 
 class Profile:
     name = StringField(required=False, error_messages={'required': 'Name is required.'})
@@ -13,7 +12,12 @@ class Profile:
     comments_average = FloatField(default=0,required=False)
     similar_channels = ListField(ReferenceField('Profile'), required=False,default = [])
     synchronized_channels = ListField(ReferenceField('Profile'), required=False,default = [])
-    last_content_date = StringField(required=False,default=datetime.datetime.now())
-    last_content = ReferenceField(BaseContent,required=False,default=None)
+    last_content_date = StringField(required=False,default=datetime.now())
+    last_content = ReferenceField("Content",required=False,default=None)
     main_language = StringField(required=False,default="pt-BR")
     url = StringField(required=True, error_messages={'required': 'Url is required.'})
+    subscribes = IntField(default=0,required=False)
+    views = IntField(default=0,required=False)
+    n_contents = IntField(default=0,required=False)
+    start_date = StringField(required=False,default=datetime.now())
+    platform =  EnumField("Platform", required=True, error_messages={'required': 'Platform is required.'})
