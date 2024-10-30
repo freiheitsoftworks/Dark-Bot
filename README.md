@@ -87,6 +87,11 @@ Usando Ubuntu com Python já instalado:
    ```bash
    python -m venv venv
    source venv/bin/activate
+
+   para o windows é necessário rodar: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+   e depois: .\venv\Scripts\Activate.ps1
+
+   para instalar as libs do requirements.txt -> pip install -r requirements.txt
    ```
 
    > Se houver problema na criação do ambiente, apague o diretório `venv` e tente novamente.
