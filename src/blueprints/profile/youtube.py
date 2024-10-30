@@ -1,7 +1,3 @@
-# script de automação de coleta de dados de 1 perfil de youtube
-# documentação pyautogui: https://pyautogui.readthedocs.io/
-# import cv2
-# import selenium
 import time
 import pyautogui as bot
 
@@ -22,5 +18,16 @@ class YoutubeProfile:
         bot.write(writable_url) # digita  url
         time.sleep(0.5)
         bot.press(['enter']) # busca com enter
-
-
+        
+    def get_profile_page_info():
+        bot.locateCenterOnScreen # usar pyautogui para clickar baseado nas imagens salvas em static assets
+        bot.click(x=1920, y=1080) # posiciona o cursor no centro da tela
+        time.sleep(1)
+        bot.scroll(-500) # rola para baixo 500 pixels
+        time.sleep(1)
+        bot.scroll(-500) # rola para baixo mais 500 pixels
+        # deve clickar no mais
+        # deve clickar colocar mouse no centro da pagina
+        # rolar container até o final
+        # depois segurar esquerdo até o final do container e soltar
+        # copiar informaçoes e usar para criar novo profile (no serviço de criar profile)
